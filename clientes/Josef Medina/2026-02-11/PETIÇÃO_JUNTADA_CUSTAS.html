@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petição de Juntada de Custas - Josef Medina</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            font-family: 'Times New Roman', serif;
+            padding: 20px 0;
+        }
+        .documento {
+            background-color: white;
+            color: black;
+            font-family: 'Times New Roman', serif;
+            width: 210mm;
+            min-height: 297mm;
+            padding: 1.2cm 1.8cm;
+            margin: 0 auto;
+            text-align: justify;
+            line-height: 1.4;
+            box-sizing: border-box;
+            position: relative;
+            border: none;
+            box-shadow: none;
+        }
+        .cabecalho {
+            text-align: center;
+            border-bottom: 1.5px solid #c5a059;
+            padding-bottom: 6px;
+            margin-bottom: 20px;
+        }
+        .logo {
+            margin-bottom: -35px;
+        }
+        .logo img {
+            width: 170px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border: none;
+        }
+        h1 {
+            margin: 0;
+            font-size: 20pt;
+            letter-spacing: 3px;
+            font-weight: 400;
+            color: #001f3f;
+            text-transform: uppercase;
+            font-family: 'Cinzel', serif;
+        }
+        h1 span {
+            color: #c5a059;
+        }
+        .subtitulo {
+            margin: 2px 0;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #666;
+            font-weight: bold;
+        }
+        .info-escritorio {
+            margin-top: 5px;
+            font-size: 7.5pt;
+            color: #999;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+        .titulo-documento {
+            text-align: center;
+            margin: 25px 0 20px 0;
+        }
+        .titulo-documento span {
+            font-size: 13pt;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 2px solid black;
+            padding-bottom: 2px;
+        }
+        .corpo {
+            font-size: 10.5pt;
+            color: black;
+            text-align: justify;
+            margin-bottom: 40px;
+        }
+        .corpo p {
+            margin: 0 0 8px 0;
+            text-align: justify;
+        }
+        .dados-processo {
+            margin-bottom: 15px;
+        }
+        .dados-processo p {
+            margin: 2px 0;
+            text-align: left;
+        }
+        .corpo h3 {
+            font-size: 11pt;
+            font-weight: bold;
+            margin: 15px 0 5px 0;
+            text-align: left;
+        }
+        .assinatura {
+            width: 300px;
+            margin: 40px auto 0;
+            text-align: center;
+        }
+        .linha-assinatura {
+            position: relative;
+            height: 45px;
+            width: 100%;
+        }
+        .linha-assinatura img {
+            height: 65px;
+            width: auto;
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            opacity: 0.9;
+            pointer-events: none;
+        }
+        .linha {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            border-top: 1.5px solid black;
+            z-index: 5;
+        }
+        .nome-assinatura {
+            margin: 12px 0 0 0;
+            font-weight: bold;
+            font-size: 11pt;
+            text-transform: uppercase;
+        }
+        .oab-assinatura {
+            margin: 2px 0 0 0;
+            font-size: 9pt;
+            color: #333;
+        }
+        .cargo-assinatura {
+            margin: 2px 0 0 0;
+            font-size: 8pt;
+            color: #666;
+        }
+        .rodape {
+            position: absolute;
+            bottom: 0.8cm;
+            left: 1.8cm;
+            right: 1.8cm;
+            text-align: center;
+            font-size: 7pt;
+            color: #666;
+            border-top: 1px solid #eee;
+            padding-top: 4px;
+        }
+        @media print {
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+    <div class="documento">
+
+        <!-- CABEÇALHO PADRONIZADO -->
+        <div class="cabecalho">
+            <div class="logo">
+                <img src="https://github.com/jimusho-seidokai/santos-e-associados/blob/main/imagens/S&A.png?raw=true" alt="S&A Logo">
+            </div>
+            <div>
+                <h1>SANTOS <span>&</span> ASSOCIADOS</h1>
+                <p class="subtitulo">Advocacia Estratégica & Consultoria de Estado</p>
+                <div class="info-escritorio">
+                    CNPJ: 50.233.670/0001-26 | IE: 944.102.242.195 | OAB/SP 2026.001
+                </div>
+            </div>
+        </div>
+
+        <!-- TÍTULO DA PETIÇÃO -->
+        <div class="titulo-documento">
+            <span>PETIÇÃO DE JUNTADA DE COMPROVANTE DE CUSTAS</span>
+        </div>
+
+        <!-- CORPO DA PETIÇÃO -->
+        <div class="corpo">
+            <div class="dados-processo">
+                <p>Processo nº: <strong>4007485-33.2026.8.00.3837</strong></p>
+                <p>Autor: <strong>Josef Medina</strong> / Réu: <strong>Heitor Alves</strong></p>
+            </div>
+
+            <p>Excelentíssimo Senhor Doutor Juiz de Direito da 2ª Vara Cível do Tribunal de Justiça do Estado de São Paulo,</p>
+
+            <p><strong>JOSEF MEDINA</strong>, já qualificado nos autos do processo em epígrafe, por seu advogado infra-assinado, <strong>Dr. Virgulino Santos (OAB/SP 238.126)</strong>, vem, respeitosamente, à presença de Vossa Excelência, expor e requerer o que segue.</p>
+
+            <h3>1. DA JUNTADA DO COMPROVANTE DE PAGAMENTO DAS CUSTAS</h3>
+
+            <p>Em cumprimento ao r. despacho de fls. 3, que determinou o recolhimento das custas processuais iniciais no prazo de 15 (quinze) dias, o autor providenciou o pagamento da guia emitida por este cartório, no valor de R$ 5.250,00 (cinco mil duzentos e cinquenta reais).</p>
+
+            <p>O pagamento foi efetuado pelo próprio advogado subscritor, Dr. Virgulino Santos, com amparo nos poderes que lhe foram conferidos pela procuração de fls., adiantando a quantia em nome do autor para viabilizar o regular prosseguimento do feito. O valor será oportunamente compensado com os honorários contratuais já ajustados.</p>
+
+            <p>Nesse sentido, junta-se aos autos o comprovante de pagamento das custas devidamente quitado, conforme documento anexo.</p>
+
+            <h3>2. DO PEDIDO DE PROSSEGUIMENTO</h3>
+
+            <p>Diante da regularização do preparo, requer-se seja certificado o recolhimento nos autos e dado regular prosseguimento ao feito, com a designação de audiência de conciliação e a citação do réu, nos moldes do r. despacho de fls. 3</p>
+
+            <p>Nestes termos, pede deferimento.</p>
+
+            <p>São Paulo, 16 de fevereiro de 2026.</p>
+        </div>
+
+        <!-- ASSINATURA -->
+        <div class="assinatura">
+            <div class="linha-assinatura">
+                <img src="https://github.com/jimusho-seidokai/santos-e-associados/blob/main/imagens/assinatura_virgulino.png?raw=true" alt="Assinatura Virgulino">
+                <div class="linha"></div>
+            </div>
+            <p class="nome-assinatura">Virgulino Santos</p>
+            <p class="oab-assinatura">OAB/SP 238.126</p>
+            <p class="cargo-assinatura">Sócio-Diretor | Santos & Associados</p>
+        </div>
+
+        <!-- RODAPÉ -->
+        <div class="rodape">
+            SANTOS & ASSOCIADOS | Rodovia Interestadual 425 Leste, 425, Centro – São Paulo/SP
+        </div>
+
+    </div>
+</body>
+</html>
