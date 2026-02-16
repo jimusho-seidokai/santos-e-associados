@@ -1,43 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Contrato de Honorários - Stalony Santos Araujo</title>
-    <script>
-    (function() {
-        // Função para calcular quantos níveis de pastas existem até a raiz
-        function getFolderDepth() {
-            var path = window.location.pathname;
-            // Normaliza barras invertidas do Windows
-            path = path.replace(/\\/g, '/');
-            // Remove o nome do arquivo (tudo após a última '/')
-            var dir = path.substring(0, path.lastIndexOf('/') + 1);
-            // Divide as pastas e remove partes vazias (ex: se for "/C:/", a primeira parte é "C:")
-            var parts = dir.split('/').filter(function(p) { return p.length > 0; });
-            return parts.length; // número de pastas até o arquivo
-        }
-
-        // Executa assim que o DOM estiver carregado
-        window.addEventListener('DOMContentLoaded', function() {
-            var depth = getFolderDepth();
-            // Gera o prefixo com a quantidade certa de "../"
-            var prefix = '';
-            for (var i = 0; i < depth; i++) {
-                prefix += '../';
-            }
-
-            // Seleciona todas as imagens cujo src começa com "imagens/"
-            var imagens = document.querySelectorAll('img[src^="imagens/"]');
-            imagens.forEach(function(img) {
-                var src = img.getAttribute('src');
-                // Se a imagem ainda não tiver o prefixo, adiciona
-                if (src.indexOf(prefix) !== 0) {
-                    img.src = prefix + src;
-                }
-            });
-        });
-    })();
-</script>
 </head>
 <body>
 <div style="background-color: white !important; color: black !important; font-family: 'Times New Roman', serif !important; width: 210mm; height: 297mm; padding: 1.2cm 1.8cm; margin: auto; text-align: justify; line-height: 1.3; box-sizing: border-box; overflow: hidden; position: relative; display: flex; flex-direction: column; border: none !important;">
@@ -45,7 +7,7 @@
     <!-- CABEÇALHO PADRONIZADO (SANTOS & ASSOCIADOS) - IGUAL AO MODELO -->
     <div style="text-align: center; border-bottom: 1.5px solid #c5a059; padding-bottom: 8px; margin-bottom: 20px; flex-shrink: 0;">
         <div style="margin-bottom: -35px;">
-            <img src="/imagens/S&A.png" alt="S&A Logo" style="width: 180px; height: auto; display: block; margin: 0 auto; border: none !important;">
+            <img src="https://github.com/jimusho-seidokai/santos-e-associados/blob/main/imagens/S&A.png?raw=true" alt="S&A Logo" style="width: 180px; height: auto; display: block; margin: 0 auto; border: none !important;">
         </div>
         <div style="display: block;">
             <h1 style="margin: 0; font-size: 20pt; letter-spacing: 3px; font-weight: 400; color: #001f3f !important; text-transform: uppercase; font-family: 'Cinzel', serif;">
@@ -94,7 +56,7 @@
         <div style="text-align: center; width: 260px;">
             <div style="position: relative; height: 50px; width: 100%;">
                 <!-- AUMENTE O VALOR NEGATIVO DE bottom PARA DESCER A IMAGEM -->
-                <img src="imagens/assinatura_stalony.png" alt="Assinatura Stalony" 
+                <img src="https://github.com/jimusho-seidokai/santos-e-associados/blob/main/imagens/assinatura_stalony.png?raw=true" alt="Assinatura Stalony" 
                      style="height: auto; max-height: 60px; width: auto; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); z-index: 10; opacity: 0.9; pointer-events: none;">
                 <div style="position: absolute; bottom: 0; width: 100%; border-top: 1.5px solid black; z-index: 5;"></div>
             </div>
@@ -105,7 +67,7 @@
         <!-- ASSINATURA DE VIRGULINO (196x85) - MANTIDA COMO ESTÁ (BOA) -->
         <div style="text-align: center; width: 260px;">
             <div style="position: relative; height: 50px; width: 100%;">
-                <img src="imagens/assinatura_virgulino.png" alt="Assinatura Virgulino" 
+                <img src="https://github.com/jimusho-seidokai/santos-e-associados/blob/main/imagens/assinatura_virgulino.png?raw=true" alt="Assinatura Virgulino" 
                      style="height: auto; max-height: 80px; width: auto; position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%); z-index: 10; filter: contrast(1.2) grayscale(100%); opacity: 0.9; pointer-events: none;">
                 <div style="position: absolute; bottom: 0; width: 100%; border-top: 1.5px solid black; z-index: 5;"></div>
             </div>
