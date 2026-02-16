@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embargos de Declaração - Josef Medina</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 10px 0;
+            font-family: 'Times New Roman', serif;
+        }
+        .documento {
+            background-color: white !important;
+            color: black !important;
+            font-family: 'Times New Roman', serif !important;
+            width: 210mm;
+            min-height: 297mm;
+            padding: 1.5cm 1.8cm 2cm 1.8cm; /* topo, direita, inferior, esquerda */
+            margin: 0 auto;
+            text-align: justify;
+            line-height: 1.5; /* espaçamento mais confortável */
+            box-sizing: border-box;
+            position: relative;
+            border: none !important;
+            box-shadow: none;
+            page-break-after: avoid;
+        }
+        .cabecalho {
+            text-align: center;
+            border-bottom: 1.5px solid #c5a059;
+            padding-bottom: 6px;
+            margin-bottom: 20px; /* mais espaço após cabeçalho */
+        }
+        .logo {
+            margin-bottom: -35px;
+        }
+        .logo img {
+            width: 170px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border: none;
+        }
+        h1 {
+            margin: 0;
+            font-size: 20pt;
+            letter-spacing: 3px;
+            font-weight: 400;
+            color: #001f3f;
+            text-transform: uppercase;
+            font-family: 'Cinzel', serif;
+        }
+        h1 span {
+            color: #c5a059;
+        }
+        .subtitulo {
+            margin: 2px 0;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #666;
+            font-weight: bold;
+        }
+        .info-escritorio {
+            margin-top: 5px;
+            font-size: 7.5pt;
+            color: #999;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+        .titulo-documento {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .titulo-documento span {
+            font-size: 13pt;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 2px solid black;
+            padding-bottom: 2px;
+        }
+        .corpo {
+            font-size: 10.5pt;
+            color: black;
+            margin-bottom: 30px; /* espaço extra antes da assinatura */
+        }
+        .corpo p {
+            margin: 0 0 0.5em 0; /* espaçamento entre parágrafos */
+            text-indent: 1.5em;
+            text-align: justify;
+        }
+        .corpo p.sem-indent {
+            text-indent: 0;
+        }
+        .corpo h3 {
+            font-size: 11pt;
+            font-weight: bold;
+            margin: 1.2em 0 0.3em 0; /* espaçamento vertical adequado */
+            text-indent: 0;
+            text-align: left;
+        }
+        .dados-processo {
+            margin-bottom: 15px;
+        }
+        .dados-processo p {
+            margin: 2px 0;
+            text-indent: 0;
+            text-align: left;
+        }
+        .assinatura {
+            width: 300px;
+            margin: 20px auto 0;
+            text-align: center;
+            page-break-inside: avoid; /* evita quebra no meio da assinatura */
+        }
+        .linha-assinatura {
+            position: relative;
+            height: 45px;
+            width: 100%;
+        }
+        .linha-assinatura img {
+            height: 65px;
+            width: auto;
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            opacity: 0.9;
+            pointer-events: none;
+        }
+        .linha {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            border-top: 1.5px solid black;
+            z-index: 5;
+        }
+        .nome-assinatura {
+            margin: 12px 0 0 0;
+            font-weight: bold;
+            font-size: 11pt;
+            text-transform: uppercase;
+        }
+        .oab-assinatura {
+            margin: 2px 0 0 0;
+            font-size: 9pt;
+            color: #333;
+        }
+        .cargo-assinatura {
+            margin: 2px 0 0 0;
+            font-size: 8pt;
+            color: #666;
+        }
+        .rodape {
+            position: absolute;
+            bottom: 0.8cm;
+            left: 1.8cm;
+            right: 1.8cm;
+            text-align: center;
+            font-size: 7pt;
+            color: #666;
+            border-top: 1px solid #eee;
+            padding-top: 4px;
+        }
+        @media print {
+            body { background: white; }
+            .documento { box-shadow: none; border: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="documento">
+
+        <!-- CABEÇALHO PADRONIZADO -->
+        <div class="cabecalho">
+            <div class="logo">
+                <img src="https://github.com/jimusho-seidokai/santos-e-associados/blob/main/imagens/S&A.png?raw=true" alt="S&A Logo">
+            </div>
+            <div>
+                <h1>SANTOS <span>&</span> ASSOCIADOS</h1>
+                <p class="subtitulo">Advocacia Estratégica & Consultoria de Estado</p>
+                <div class="info-escritorio">
+                    CNPJ: 50.233.670/0001-26 &nbsp; | &nbsp; IE: 944.102.242.195 &nbsp; | &nbsp; OAB/SP 2026.001
+                </div>
+            </div>
+        </div>
+
+        <!-- TÍTULO DO DOCUMENTO -->
+        <div class="titulo-documento">
+            <span>EMBARGOS DE DECLARAÇÃO</span>
+        </div>
+
+        <!-- CORPO DA PETIÇÃO -->
+        <div class="corpo">
+
+            <div class="dados-processo">
+                <p class="sem-indent">Processo nº: <strong>4007485-33.2026.8.00.3837</strong></p>
+                <p class="sem-indent">Autor: <strong>Josef Medina</strong> / Réu: <strong>Heitor Alves</strong></p>
+            </div>
+
+            <p class="sem-indent">Excelentíssimo Senhor Doutor Juiz de Direito da 2ª Vara Cível do Tribunal de Justiça do Estado de São Paulo,</p>
+
+            <p><strong>JOSEF MEDINA</strong>, já devidamente qualificado nos autos do processo em epígrafe, por seu advogado que esta subscreve, <strong>Dr. Virgulino Santos (OAB/SP 238.126)</strong>, vem, respeitosamente, à presença de Vossa Excelência, com fulcro no art. 1.022 do Código de Processo Civil, opor <strong>EMBARGOS DE DECLARAÇÃO</strong> em face do r. despacho de fls., pelas razões de fato e de direito a seguir expostas.</p>
+
+            <h3>1. DA OMISSÃO NO DESPACHO</h3>
+
+            <p>O douto despacho de fls. determinou a intimação do autor para que comprove o recolhimento das custas processuais iniciais, no prazo de 15 (quinze) dias, sob pena de cancelamento da distribuição (art. 290 do CPC).</p>
+
+            <p>Ocorre, Excelência, que o referido despacho <strong>não especificou o valor devido a título de custas</strong>, tampouco <strong>indicou a forma de recolhimento ou os dados bancários para depósito</strong> – informação essencial para o cumprimento da diligência, uma vez que as custas devem ser recolhidas em favor do Estado, por meio de guia própria.</p>
+
+            <p>Tal omissão impede o autor de dar cumprimento à determinação judicial, configurando vício sanável por meio dos presentes embargos declaratórios, nos termos do art. 1.022, II, do CPC.</p>
+
+            <h3>2. DO PEDIDO DE ESCLARECIMENTO</h3>
+
+            <p>Diante do exposto, requer-se que Vossa Excelência, conhecendo e dando provimento aos presentes embargos, <strong>esclareça</strong>:</p>
+
+            <p>a) O valor exato das custas processuais a serem recolhidas, calculado com base no valor da causa (R$ 350.000,00) e nas normas de custas vigentes no Estado de São Paulo (Lei Estadual nº 11.608/2003);</p>
+
+            <p>b) Os dados bancários oficiais para depósito (conta do Tribunal de Justiça ou da Vara responsável), a fim de que o autor possa realizar o pagamento e juntar o comprovante nos autos.</p>
+
+            <p>Uma vez sanada a omissão, o autor compromete-se a efetuar o depósito no prazo legal e a prosseguir com o feito.</p>
+
+            <h3>3. DO REQUERIMENTO FINAL</h3>
+
+            <p>Ante o exposto, requer-se:</p>
+
+            <p>a) O recebimento e processamento dos presentes embargos de declaração;</p>
+            <p>b) Seja suprida a omissão apontada, com a indicação do valor das custas e dos dados bancários para depósito;</p>
+            <p>c) Após, seja o autor intimado para, querendo, cumprir a diligência no prazo assinalado.</p>
+
+            <p>Nestes termos, pede deferimento.</p>
+
+            <p>São Paulo, 17 de fevereiro de 2026.</p>
+
+        </div>
+
+        <!-- ÁREA DE ASSINATURA -->
+        <div class="assinatura">
+            <div class="linha-assinatura">
+                <img src="https://github.com/jimusho-seidokai/santos-e-associados/blob/main/imagens/assinatura_virgulino.png?raw=true" alt="Assinatura Virgulino">
+                <div class="linha"></div>
+            </div>
+            <p class="nome-assinatura">Virgulino Santos</p>
+            <p class="oab-assinatura">OAB/SP 238.126</p>
+            <p class="cargo-assinatura">Sócio-Diretor | Santos & Associados</p>
+        </div>
+
+        <!-- RODAPÉ -->
+        <div class="rodape">
+            SANTOS & ASSOCIADOS | Rodovia Interestadual 425 Leste, 425, Centro – São Paulo/SP
+        </div>
+
+    </div>
+</body>
+</html>
