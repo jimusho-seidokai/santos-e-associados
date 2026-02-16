@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chancelaria Digital Seidōkai · Navegador de Processos</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            font-family: 'Times New Roman', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* CABEÇALHO */
+        header {
+            text-align: center;
+            padding: 40px 20px 30px;
+            border-bottom: 2px solid #c5a059;
+            width: 100%;
+            background: linear-gradient(to bottom, #1a1a1a, #0a0a0a);
+            margin-bottom: 30px;
+        }
+
+        header img {
+            width: 200px;
+            filter: drop-shadow(0 0 10px rgba(197, 160, 89, 0.5));
+        }
+
+        header h1 {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 8px;
+            color: #ffffff;
+            margin: 20px 0 5px 0;
+        }
+
+        header p {
+            font-family: 'Cinzel', serif;
+            color: #c5a059;
+            letter-spacing: 5px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        /* CONTAINER PRINCIPAL */
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto 40px;
+            flex: 1;
+        }
+
+        /* BARRA DE PESQUISA */
+        .search-bar {
+            margin: 20px 0 30px;
+            display: flex;
+            gap: 10px;
+        }
+        .search-bar input {
+            flex: 1;
+            padding: 12px 20px;
+            background-color: #1a1a1a;
+            border: 1px solid #c5a059;
+            color: #e0e0e0;
+            font-size: 16px;
+            border-radius: 40px;
+            outline: none;
+        }
+        .search-bar input::placeholder {
+            color: #666;
+            font-style: italic;
+        }
+        .search-bar button {
+            background-color: #c5a059;
+            border: none;
+            color: #0a0a0a;
+            font-weight: bold;
+            padding: 0 30px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            transition: 0.3s;
+        }
+        .search-bar button:hover {
+            background-color: #e0b468;
+        }
+
+        /* LOADING / ERRO */
+        .loading, .error {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+            font-style: italic;
+        }
+        .error {
+            color: #c55;
+        }
+
+        /* LISTA DE ARQUIVOS (ÁRVORE) */
+        .tree {
+            list-style: none;
+            padding-left: 20px;
+        }
+        .tree li {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        .tree .folder {
+            cursor: pointer;
+            font-weight: bold;
+            color: #c5a059;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+            user-select: none;
+        }
+        .tree .folder:hover {
+            text-decoration: underline;
+        }
+        .tree .folder::before {
+            content: "📁 ";
+            font-size: 1.2em;
+        }
+        .tree .folder.open::before {
+            content: "📂 ";
+        }
+        .tree .file {
+            margin-left: 25px;
+            display: block;
+        }
+        .tree .file a {
+            color: #e0e0e0;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+        }
+        .tree .file a:hover {
+            color: #c5a059;
+            padding-left: 5px;
+        }
+        .tree .file a::before {
+            content: "📄 ";
+            font-size: 1.1em;
+            color: #888;
+        }
+        .tree .nested {
+            display: none;
+            list-style: none;
+            padding-left: 25px;
+        }
+        .active .nested {
+            display: block;
+        }
+
+        footer {
+            padding: 30px;
+            font-size: 10px;
+            color: #444;
+            letter-spacing: 2px;
+            text-align: center;
+            border-top: 1px solid #222;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://github.com/jimusho-seidokai/santos-e-associados/blob/main/imagens/S&A.png?raw=true" alt="Logo S&A" onerror="this.src='https://via.placeholder.com/200x80?text=Seidōkai'">
+        <h1>Santos & Associados</h1>
+        <p>Navegador de processos</p>
+    </header>
+
+    <div class="container">
+        <!-- Barra de pesquisa -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Buscar por cliente, número do processo, nome do arquivo...">
+            <button onclick="filterFiles()">BUSCAR</button>
+        </div>
+
+        <!-- Área onde a árvore será renderizada -->
+        <div id="tree-container" class="tree"></div>
+    </div>
+
+    <footer>
+        PRUDENTIA, JUSTITIA ET POTENTIA | © 2026 SANTOS & ASSOCIADOS
+    </footer>
+
+    <script>
+        // CONFIGURAÇÃO – SUBSTITUA PELO SEU USUÁRIO E REPOSITÓRIO
+        const GITHUB_USER = 'jimusho-seidokai';
+        const GITHUB_REPO = 'santos-e-associados';
+        const BRANCH = 'main'; // ou 'master'
+
+        // Elementos DOM
+        const container = document.getElementById('tree-container');
+        let allFiles = []; // Guarda todos os arquivos .html com seus caminhos
+
+        // Busca a árvore do repositório via API do GitHub
+        async function loadRepositoryTree() {
+            container.innerHTML = '<div class="loading">⏳ Carregando estrutura do repositório...</div>';
+            try {
+                const url = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/git/trees/${BRANCH}?recursive=1`;
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
+                const data = await response.json();
+
+                // Filtra apenas arquivos .html
+                const htmlFiles = data.tree.filter(item => item.type === 'blob' && item.path.endsWith('.html'));
+
+                // Converte para uma estrutura de pastas aninhadas
+                const tree = buildTree(htmlFiles.map(f => f.path));
+                allFiles = htmlFiles.map(f => f.path); // guarda para busca
+
+                // Renderiza a árvore
+                renderTree(tree);
+            } catch (error) {
+                container.innerHTML = `<div class="error">❌ Erro ao carregar repositório: ${error.message}<br>Verifique se o repositório é público e as variáveis GITHUB_USER/GITHUB_REPO estão corretas.</div>`;
+            }
+        }
+
+        // Constrói uma estrutura de árvore a partir de uma lista de caminhos
+        function buildTree(paths) {
+            const root = { name: 'root', type: 'folder', children: [] };
+            paths.forEach(path => {
+                const parts = path.split('/');
+                let current = root;
+                for (let i = 0; i < parts.length; i++) {
+                    const part = parts[i];
+                    if (i === parts.length - 1) { // é arquivo
+                        current.children.push({ name: part, type: 'file', path: path });
+                    } else { // é pasta
+                        let folder = current.children.find(c => c.name === part && c.type === 'folder');
+                        if (!folder) {
+                            folder = { name: part, type: 'folder', children: [] };
+                            current.children.push(folder);
+                        }
+                        current = folder;
+                    }
+                }
+            });
+            // Ordena: pastas primeiro, depois arquivos, ambos alfabeticamente
+            sortTree(root);
+            return root.children; // retorna os filhos da raiz (excluindo a própria raiz)
+        }
+
+        // Ordena a árvore (pastas antes de arquivos, ambos em ordem alfabética)
+        function sortTree(node) {
+            if (node.children) {
+                node.children.sort((a, b) => {
+                    if (a.type === b.type) return a.name.localeCompare(b.name);
+                    return a.type === 'folder' ? -1 : 1;
+                });
+                node.children.forEach(child => sortTree(child));
+            }
+        }
+
+        // Renderiza a árvore no DOM
+        function renderTree(nodes, parentElement = container) {
+            if (!nodes || nodes.length === 0) {
+                parentElement.innerHTML = '<div class="loading">Nenhum arquivo .html encontrado.</div>';
+                return;
+            }
+            const ul = document.createElement('ul');
+            ul.className = 'tree';
+            nodes.forEach(node => {
+                const li = document.createElement('li');
+                if (node.type === 'folder') {
+                    li.className = 'folder';
+                    li.textContent = node.name;
+                    li.onclick = function(e) {
+                        e.stopPropagation();
+                        this.classList.toggle('open');
+                        const nested = this.querySelector('ul');
+                        if (nested) nested.style.display = nested.style.display === 'block' ? 'none' : 'block';
+                    };
+                    const childUl = document.createElement('ul');
+                    childUl.className = 'nested';
+                    childUl.style.display = 'none'; // começa fechado
+                    renderTree(node.children, childUl); // recursão
+                    li.appendChild(childUl);
+                } else {
+                    li.className = 'file';
+                    // Constrói o link para o arquivo (caminho relativo)
+                    const a = document.createElement('a');
+                    a.href = node.path;
+                    a.textContent = node.name;
+                    a.title = node.path;
+                    li.appendChild(a);
+                }
+                ul.appendChild(li);
+            });
+            parentElement.appendChild(ul);
+        }
+
+        // Função de busca (filtra a árvore mostrando apenas os itens que contêm o termo)
+        function filterFiles() {
+            const term = document.getElementById('searchInput').value.trim().toLowerCase();
+            if (!term) {
+                // Recarrega a árvore original
+                container.innerHTML = '';
+                const rootNodes = buildTree(allFiles);
+                renderTree(rootNodes);
+                return;
+            }
+
+            // Filtra caminhos que contêm o termo
+            const filteredPaths = allFiles.filter(path => path.toLowerCase().includes(term));
+            const filteredTree = buildTree(filteredPaths);
+            container.innerHTML = '';
+            renderTree(filteredTree);
+        }
+
+        // Inicia o carregamento
+        loadRepositoryTree();
+    </script>
+</body>
+</html>
