@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMTT – Proposta Comercial · Pregão 001/2026</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Times New Roman', Times, serif;
+            padding: 0;
+        }
+        .documento {
+            background-color: #ffffff;
+            color: #000000;
+            width: 210mm;
+            min-height: 297mm;
+            padding: 1.2cm 1.5cm;
+            margin: 0 auto;
+            text-align: justify;
+            line-height: 1.3;
+            box-sizing: border-box;
+            position: relative;
+            border: 1px solid #000;
+        }
+
+        /* Cabeçalho Técnico AMTT - Preto no Branco */
+        .cabecalho {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .logo-area {
+            display: flex;
+            flex-direction: column;
+        }
+        .logo-img {
+            width: 160px;
+            height: auto;
+            filter: invert(1) contrast(2); 
+            display: block;
+        }
+        .info-empresa {
+            text-align: right;
+            font-family: 'Inter', sans-serif;
+            font-size: 7pt;
+            line-height: 1.4;
+        }
+        .info-empresa p {
+            margin: 2px 0;
+        }
+
+        /* Título */
+        .titulo-documento {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .titulo-documento span {
+            font-family: 'Inter', sans-serif;
+            font-size: 14pt;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 2px solid #000;
+            padding: 4px 16px;
+        }
+
+        /* Corpo */
+        .corpo {
+            font-size: 9pt;
+        }
+        .corpo p {
+            margin: 0 0 6px 0;
+        }
+
+        /* Tabela de preços */
+        .tabela-precos {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 8.5pt;
+        }
+        .tabela-precos th {
+            background-color: #000;
+            color: #fff;
+            padding: 5px;
+            text-transform: uppercase;
+            font-size: 7.5pt;
+            text-align: center;
+            border: 1px solid #000;
+        }
+        .tabela-precos td {
+            border: 1px solid #000;
+            padding: 4px 6px;
+        }
+        .tabela-precos .categoria {
+            background-color: #eeeeee;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 8pt;
+        }
+        .tabela-precos .valor {
+            text-align: right;
+            font-weight: 700;
+        }
+        .tabela-precos .subtotal {
+            text-align: right;
+            font-weight: 700;
+            background-color: #f5f5f5;
+        }
+        .total-row {
+            background-color: #000;
+            color: #fff;
+            font-weight: 700;
+        }
+        .total-row td {
+            border: 1px solid #000;
+            padding: 6px;
+        }
+
+        /* Condições */
+        .condicoes-tecnicas {
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 20px 0;
+        }
+        .condicoes-tecnicas h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 9pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            border-bottom: 1px solid #000;
+        }
+        .condicoes-tecnicas p {
+            font-size: 8.5pt;
+            margin: 3px 0;
+        }
+
+        /* Assinatura */
+        .assinatura-area {
+            margin-top: 30px;
+            text-align: center;
+            width: 100%;
+        }
+        .caixa-assinatura {
+            width: 250px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .caixa-assinatura img {
+            width: 130px;
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            filter: grayscale(100%) contrast(1.5);
+        }
+        .linha-assinatura {
+            border-top: 1.5px solid #000;
+            margin-bottom: 5px;
+        }
+        .nome-assinatura {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 10pt;
+            text-transform: uppercase;
+        }
+
+        .rodape {
+            position: absolute;
+            bottom: 0.8cm;
+            left: 1.5cm;
+            right: 1.5cm;
+            text-align: center;
+            font-size: 6.5pt;
+            border-top: 1px solid #000;
+            padding-top: 4px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        @media print {
+            .documento { border: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="documento">
+
+        <!-- CABEÇALHO TÉCNICO -->
+        <div class="cabecalho">
+            <div class="logo-area">
+                <img src="https://www.amtt.com.br/wp-content/uploads/2021/11/aplicacao-vertical_ok_branco_400px.png" class="logo-img" alt="AMTT">
+            </div>
+            <div class="info-empresa">
+                <p><strong>AMTT – Armas, Munições e Tecnologia Tática Ltda.</strong></p>
+                <p>CNPJ: 98.765.432/0001-10 | IE: 987.654.321</p>
+                <p>Sede: Av. Paulista, 1000 – São Paulo/SP</p>
+                <p>www.amtt.com.br | comercial@amtt.com.br</p>
+            </div>
+        </div>
+
+        <!-- TÍTULO -->
+        <div class="titulo-documento">
+            <span>PROPOSTA COMERCIAL Nº 02/2026</span>
+        </div>
+
+        <!-- CORPO -->
+        <div class="corpo">
+            <p style="margin-bottom: 10px;"><strong>À Comissão Permanente de Licitação</strong><br>
+            Secretaria de Segurança Pública do Estado de São Paulo<br>
+            Ref.: Pregão Presencial nº 001/2026 – Aquisição de Ativos de Defesa</p>
+
+            <p>Prezados Senhores,</p>
+
+            <p>A <strong>AMTT – Armas, Munições e Tecnologia Tática Ltda.</strong> apresenta sua proposta comercial para o fornecimento dos materiais de defesa abaixo especificados, conforme quantitativos solicitados, em estrita observância às exigências do edital.</p>
+
+            <table class="tabela-precos">
+                <thead>
+                    <tr>
+                        <th style="width: 10%;">Item</th>
+                        <th style="width: 50%;">Especificação Técnica do Ativo</th>
+                        <th style="width: 12%;">Preço Unit. (R$)</th>
+                        <th style="width: 10%;">Qtde</th>
+                        <th style="width: 18%;">Subtotal (R$)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="categoria"><td colspan="5">PISTOLAS DE USO INSTITUCIONAL</td></tr>
+                    <tr>
+                        <td>01</td>
+                        <td>Pistola Glock G17 (9mm) – Padrão OTAN, 3 carregadores, polímero reforçado</td>
+                        <td class="valor">7.000,00</td>
+                        <td class="valor">30</td>
+                        <td class="subtotal">210.000,00</td>
+                    </tr>
+
+                    <tr class="categoria"><td colspan="5">SUBMETRALHADORAS</td></tr>
+                    <tr>
+                        <td>02</td>
+                        <td>Submetralhadora MP5 (9mm) – Sistema de ferrolho retardado, seletor de tiro, 4 carregadores</td>
+                        <td class="valor">50.000,00</td>
+                        <td class="valor">20</td>
+                        <td class="subtotal">1.000.000,00</td>
+                    </tr>
+
+                    <tr class="categoria"><td colspan="5">FUZIS DE ASSALTO</td></tr>
+                    <tr>
+                        <td>03</td>
+                        <td>Fuzil IMBEL IA2 (5,56mm) – Regime de uso militar, trilho picatinny, kit tático</td>
+                        <td class="valor">200.000,00</td>
+                        <td class="valor">10</td>
+                        <td class="subtotal">2.000.000,00</td>
+                    </tr>
+
+                    <tr class="total-row">
+                        <td colspan="4" style="text-align: right; font-weight: bold;">VALOR TOTAL DA PROPOSTA</td>
+                        <td style="text-align: right; font-weight: bold;">R$ 3.210.000,00</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="condicoes-tecnicas">
+                <h3>CONDIÇÕES DE FORNECIMENTO</h3>
+                <p>• <strong>Logística:</strong> Entrega em até 3 dias úteis via transporte blindado especializado, com seguro incluso.</p>
+                <p>• <strong>Garantia:</strong> 36 meses de cobertura integral contra defeitos de fabricação.</p>
+                <p>• <strong>Conformidade:</strong> Todos os itens acompanham certificados de origem, notas fiscais e manuais técnicos em português.</p>
+                <p>• <strong>Validade da proposta:</strong> 60 dias corridos a partir da data de protocolo.</p>
+                <p>• <strong>Pagamento:</strong> 50% no pedido, 50% na entrega, conforme previsto no edital.</p>
+            </div>
+
+            <p>A AMTT coloca-se à disposição para a realização de testes de balística e demonstrações operacionais mediante agendamento prévio, bem como para eventuais esclarecimentos complementares.</p>
+        </div>
+
+        <!-- ASSINATURA -->
+        <div class="assinatura-area">
+            <div class="caixa-assinatura">
+                <img src="https://github.com/jimusho-seidokai/santos-e-associados/blob/main/imagens/assinatura_rafael.png?raw=true" alt="Assinatura Rafael Dias">
+                <div class="linha-assinatura"></div>
+                <p class="nome-assinatura">RAFAEL DIAS</p>
+                <p style="font-size: 8pt; font-weight: bold;">Proprietário · AMTT</p>
+            </div>
+        </div>
+
+        <!-- RODAPÉ -->
+        <div class="rodape">
+            AMTT – Armas, Munições e Tecnologia Tática Ltda. | CNPJ 98.765.432/0001-10 | Av. Paulista, 1000 – São Paulo/SP
+        </div>
+
+    </div>
+</body>
+</html>
