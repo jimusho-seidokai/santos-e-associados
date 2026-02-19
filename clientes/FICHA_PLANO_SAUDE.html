@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instituto Médico Seidō – Ficha de Adesão</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Times New Roman', serif;
+            padding: 0;
+        }
+        .documento {
+            background-color: white;
+            color: black;
+            width: 210mm;
+            min-height: 297mm;
+            padding: 1.2cm 1.8cm;
+            margin: 0 auto;
+            text-align: justify;
+            line-height: 1.3;
+            box-sizing: border-box;
+            position: relative;
+            border: none;
+        }
+        .cabecalho {
+            text-align: center;
+            border-bottom: 2px solid #c5a059;
+            padding-bottom: 12px;
+            margin-bottom: 15px;
+        }
+        .logo {
+            margin-bottom: -35px;
+        }
+        .logo img {
+            width: 170px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border: none;
+        }
+        h1 {
+            margin: 0;
+            font-size: 24pt;
+            letter-spacing: 3px;
+            font-weight: 400;
+            color: #001f3f;
+            text-transform: uppercase;
+            font-family: 'Cinzel', serif;
+        }
+        h1 span {
+            color: #c5a059;
+        }
+        .subtitulo {
+            margin: 2px 0;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #666;
+            font-weight: bold;
+        }
+        .info-escritorio {
+            margin-top: 5px;
+            font-size: 7pt;
+            color: #999;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+        .titulo-documento {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .titulo-documento span {
+            font-size: 16pt;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 2px solid black;
+            padding-bottom: 2px;
+        }
+        .corpo {
+            font-size: 10pt;
+            color: black;
+        }
+        .dados-cliente {
+            background-color: #f9f9f9;
+            padding: 10px 15px;
+            border-left: 5px solid #c5a059;
+            margin-bottom: 15px;
+        }
+        .dados-cliente h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 11pt;
+            font-weight: 700;
+            color: #001f3f;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .linha-dados {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 6px;
+        }
+        .campo {
+            flex: 1;
+        }
+        .campo label {
+            font-size: 9pt;
+            font-weight: bold;
+            color: #001f3f;
+            display: block;
+            margin-bottom: 2px;
+        }
+        .campo input {
+            width: 100%;
+            padding: 4px 6px;
+            border: 1px solid #aaa;
+            border-radius: 0;
+            font-family: 'Times New Roman', serif;
+            font-size: 9pt;
+        }
+        .tabela-planos {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0 20px;
+            border: 2px solid #001f3f;
+        }
+        .tabela-planos th {
+            background-color: #001f3f;
+            color: white;
+            padding: 6px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 8.5pt;
+        }
+        .tabela-planos td {
+            border: 1px solid #aaa;
+            padding: 6px;
+            vertical-align: middle;
+        }
+        .tabela-planos .plano-cor {
+            font-weight: bold;
+            text-align: center;
+            width: 18%;
+        }
+        .plano-basico { background-color: #e8f0e8; color: #1e5f1e; }
+        .plano-standard { background-color: #e8ecf0; color: #1e3f5f; }
+        .plano-premium { background-color: #f0e8f0; color: #4b0082; }
+        .plano-executivo { background-color: #f0ece8; color: #8b5a2b; }
+        .valor {
+            font-weight: bold;
+            text-align: center;
+        }
+        .check-col {
+            text-align: center;
+        }
+        .check-col input {
+            transform: scale(1.1);
+            margin: 0;
+        }
+        .obs {
+            font-size: 8pt;
+            color: #666;
+            margin-bottom: 25px; /* aumentado para dar espaço */
+            text-align: left;
+        }
+        .assinaturas {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px; /* aumentado para afastar da observação */
+        }
+        .assinatura-col {
+            text-align: center;
+            width: 240px;
+            position: relative;
+        }
+        .linha-assinatura {
+            border-top: 1.5px solid black;
+            margin-bottom: 3px;
+            position: relative;
+            padding-top: 15px;
+        }
+        .assinatura-col img {
+            width: 130px;
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            filter: grayscale(100%) contrast(1.2);
+            opacity: 0.9;
+            pointer-events: none;
+        }
+        .nome-assinatura {
+            font-weight: bold;
+            font-size: 10pt;
+            text-transform: uppercase;
+        }
+        .cargo-assinatura {
+            font-size: 8pt;
+            color: #333;
+        }
+        .rodape {
+            position: absolute;
+            bottom: 0.8cm;
+            left: 1.8cm;
+            right: 1.8cm;
+            text-align: center;
+            font-size: 6.5pt;
+            color: #666;
+            border-top: 1px solid #eee;
+            padding-top: 3px;
+        }
+        @media print {
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+    <div class="documento">
+
+        <!-- CABEÇALHO INSTITUTO MÉDICO SEIDŌ -->
+        <div class="cabecalho">
+            <div class="logo">
+                <img src="https://github.com/jimusho-seidokai/santos-e-associados/blob/main/imagens/INSTITUTO_SEIDO_LOGO.png?raw=true" alt="Instituto Médico Seidō">
+            </div>
+            <div>
+                <h1>INSTITUTO MÉDICO <span>SEIDŌ</span></h1>
+                <p class="subtitulo">O Caminho Justo da Cura</p>
+                <div class="info-escritorio">
+                    CNPJ: [EM EMISSÃO] | IE: [EM EMISSÃO]<br>
+                    Rodovia Interestadual 425 Leste, 425, Centro – São Paulo/SP
+                </div>
+            </div>
+        </div>
+
+        <!-- TÍTULO DO DOCUMENTO -->
+        <div class="titulo-documento">
+            <span>FICHA DE ADESÃO A PLANO DE SAÚDE</span>
+        </div>
+
+        <!-- CORPO -->
+        <div class="corpo">
+
+            <!-- DADOS DO CLIENTE -->
+            <div class="dados-cliente">
+                <h3>Dados do contratante</h3>
+                <div class="linha-dados">
+                    <div class="campo">
+                        <label>Nome completo</label>
+                        <input type="text" placeholder="">
+                    </div>
+                    <div class="campo">
+                        <label>CPF</label>
+                        <input type="text" placeholder="">
+                    </div>
+                </div>
+                <div class="linha-dados">
+                    <div class="campo">
+                        <label>RG</label>
+                        <input type="text" placeholder="">
+                    </div>
+                    <div class="campo">
+                        <label>Data de nascimento</label>
+                        <input type="text" placeholder="__/__/____">
+                    </div>
+                </div>
+                <div class="linha-dados">
+                    <div class="campo">
+                        <label>Endereço</label>
+                        <input type="text" placeholder="">
+                    </div>
+                    <div class="campo">
+                        <label>Telefone</label>
+                        <input type="text" placeholder="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABELA DE PLANOS -->
+            <table class="tabela-planos">
+                <thead>
+                    <tr>
+                        <th>Plano</th>
+                        <th>Descrição</th>
+                        <th>Valor semanal</th>
+                        <th>Seleção</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="plano-cor plano-basico">BÁSICO<br><small style="font-weight:normal;">POPULAR</small></td>
+                        <td>Consultas básicas, clínico geral, emergência. Sem internação complexa.</td>
+                        <td class="valor">R$ 12.000</td>
+                        <td class="check-col"><input type="radio" name="plano" value="basico"></td>
+                    </tr>
+                    <tr>
+                        <td class="plano-cor plano-standard">STANDARD<br><small style="font-weight:normal;">ESSENCIAL</small></td>
+                        <td>Consultas + especialistas, exames simples, internação enfermaria.</td>
+                        <td class="valor">R$ 17.000</td>
+                        <td class="check-col"><input type="radio" name="plano" value="standard"></td>
+                    </tr>
+                    <tr>
+                        <td class="plano-cor plano-premium">PREMIUM<br><small style="font-weight:normal;">COMPLETO</small></td>
+                        <td>Internação em apartamento, cirurgias, UTI, rede completa.</td>
+                        <td class="valor">R$ 23.000</td>
+                        <td class="check-col"><input type="radio" name="plano" value="premium"></td>
+                    </tr>
+                    <tr>
+                        <td class="plano-cor plano-executivo">EXECUTIVO<br><small style="font-weight:normal;">VIP</small></td>
+                        <td>Atendimento prioritário, médico particular, check-up anual completo.</td>
+                        <td class="valor">R$ 30.000</td>
+                        <td class="check-col"><input type="radio" name="plano" value="executivo"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="obs">* Carência de 30 dias para procedimentos eletivos. Emergências têm cobertura imediata.</p>
+
+            <!-- ASSINATURAS -->
+            <div class="assinaturas">
+                <div class="assinatura-col">
+                    <div class="linha-assinatura">
+                        <img src="https://github.com/jimusho-seidokai/santos-e-associados/blob/main/imagens/assinatura_virgulino.png?raw=true" alt="Assinatura Virgulino Santos">
+                    </div>
+                    <p class="nome-assinatura">Dr. Virgulino Santos</p>
+                    <p class="cargo-assinatura">Diretor Jurídico · Instituto Seidō</p>
+                </div>
+                <div class="assinatura-col">
+                    <div class="linha-assinatura"></div>
+                    <p class="nome-assinatura">[NOME DO CLIENTE]</p>
+                    <p class="cargo-assinatura">CLIENTE</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- RODAPÉ -->
+        <div class="rodape">
+            Instituto Médico Seidō · O Caminho Justo da Cura · CNPJ 50.233.670/0001-26
+        </div>
+
+    </div>
+</body>
+</html>
