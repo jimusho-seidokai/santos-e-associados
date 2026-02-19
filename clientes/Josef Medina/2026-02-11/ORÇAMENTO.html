@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento Técnico Nº 001/2026 - Oficina Temple</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            font-family: 'Times New Roman', serif;
+            padding: 0;
+        }
+        
+        .documento {
+            background-color: white;
+            color: black;
+            width: 210mm;
+            min-height: 297mm;
+            padding: 3cm 2cm 2cm 3cm; /* Margens ABNT */
+            margin: 0 auto;
+            text-align: justify;
+            line-height: 1.5;
+            box-sizing: border-box;
+            position: relative;
+            border: none; /* Sem bordas */
+        }
+        
+        .cabecalho {
+            text-align: center;
+            border-bottom: 2px solid #c5a059;
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+        }
+        
+        .logo-empresa h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 26pt;
+            letter-spacing: 2px;
+            color: #001f3f;
+            margin: 0;
+        }
+        
+        .logo-empresa p {
+            margin: 2px 0;
+            font-size: 9pt;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .info-empresa {
+            font-size: 8pt;
+            color: #999;
+            margin-top: 5px;
+        }
+        
+        .titulo-documento {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .titulo-documento span {
+            font-size: 14pt;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 2px solid black;
+            padding-bottom: 3px;
+        }
+        
+        .corpo {
+            font-size: 10.5pt; /* Padrão dos documentos */
+            color: black;
+        }
+        
+        .corpo p {
+            margin: 0 0 8px 0;
+            text-align: justify;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 11pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 4px;
+            margin-bottom: 8px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 9.5pt;
+            margin: 10px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 6px 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+            font-size: 9pt;
+        }
+        
+        td {
+            vertical-align: top;
+        }
+        
+        td:last-child, th:last-child {
+            text-align: right;
+        }
+        
+        .total-row td {
+            font-weight: bold;
+            background-color: #f0f0f0;
+            font-size: 10pt;
+        }
+        
+        .assinatura {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .caixa-assinatura {
+            text-align: center;
+            width: 300px;
+            position: relative;
+        }
+        
+        .caixa-assinatura img {
+            width: 150px;
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            filter: grayscale(100%) contrast(1.2);
+            opacity: 0.9;
+            pointer-events: none;
+        }
+        
+        .linha-assinatura {
+            border-top: 1.5px solid black;
+            margin-bottom: 5px;
+            width: 100%;
+        }
+        
+        .nome-assinatura {
+            font-weight: bold;
+            font-size: 11pt;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        
+        .cargo-assinatura {
+            font-size: 9pt;
+            color: #333;
+        }
+        
+        .rodape {
+            position: absolute;
+            bottom: 2cm;
+            left: 3cm;
+            right: 2cm;
+            text-align: center;
+            font-size: 7pt;
+            color: #666;
+            border-top: 1px solid #eee;
+            padding-top: 4px;
+        }
+        
+        @media print {
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+    <div class="documento">
+
+        <!-- CABEÇALHO OFICINA TEMPLE -->
+        <div class="cabecalho">
+            <div class="logo-empresa">
+                <h1>OFICINA TEMPLE</h1>
+                <p>Soluções Automotivas de Alta Performance</p>
+                <div class="info-empresa">
+                    CNPJ: 88.037.723/0001-06 | IE: 112.456.789.111<br>
+                    Rua da Consolação, 1988 – Temple, São Paulo/SP
+                </div>
+            </div>
+        </div>
+
+        <!-- TÍTULO DO ORÇAMENTO -->
+        <div class="titulo-documento">
+            <span>ORÇAMENTO TÉCNICO Nº 001/2026</span>
+        </div>
+
+        <!-- CORPO DO ORÇAMENTO -->
+        <div class="corpo">
+
+            <!-- CLIENTE -->
+            <div class="section">
+                <div class="section-title">Cliente</div>
+                <p><strong>Nome:</strong> Sr. Josef Medina<br>
+                <strong>Veículo:</strong> Infernus Classic (Blindado)<br>
+                <strong>Placa:</strong> SKD-1988 | <strong>Chassi:</strong> 9BW ZZZ 37T L8 400748</p>
+            </div>
+
+            <!-- OBJETO -->
+            <div class="section">
+                <div class="section-title">Objeto</div>
+                <p>Orçamento para reparação e restauração integral de sistema de blindagem balística Nível III-A, referente a danos sofridos em evento ocorrido em 11 de Fevereiro de 2026.</p>
+            </div>
+
+            <!-- DIAGNÓSTICO TÉCNICO -->
+            <div class="section">
+                <div class="section-title">Diagnóstico Técnico</div>
+                <p>Após inspeção, constatou-se danos severos à integridade da blindagem, com múltiplos pontos de impacto resultando na perfuração e delaminação do polímero balístico e na fadiga estrutural das placas de aço. A malha de aramida apresenta comprometimento que invalida sua certificação de segurança. A continuidade da operação do veículo sem a devida restauração representa risco à segurança de seus ocupantes.</p>
+            </div>
+
+            <!-- TABELA DE SERVIÇOS -->
+            <div class="section">
+                <div class="section-title">Detalhamento de Serviços e Materiais</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CÓD</th>
+                            <th>DESCRIÇÃO</th>
+                            <th style="text-align: center;">QTD</th>
+                            <th style="text-align: right;">VALOR UNIT. (R$)</th>
+                            <th style="text-align: right;">VALOR TOTAL (R$)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td colspan="5"><strong>A. PEÇAS E MATERIAIS</strong></td></tr>
+                        <tr>
+                            <td>A01</td>
+                            <td>Painel de Aramida Nível III-A (Portas e Colunas)</td>
+                            <td style="text-align: center;">4 m²</td>
+                            <td style="text-align: right;">17.500,00</td>
+                            <td style="text-align: right;">70.000,00</td>
+                        </tr>
+                        <tr>
+                            <td>A02</td>
+                            <td>Vidro Balístico "AGP" Multilayer (Parabrisa e Janelas)</td>
+                            <td style="text-align: center;">1 Conj.</td>
+                            <td style="text-align: right;">55.000,00</td>
+                            <td style="text-align: right;">55.000,00</td>
+                        </tr>
+                        <tr>
+                            <td>A03</td>
+                            <td>Chapa de Aço Balístico (Teto e Assoalho)</td>
+                            <td style="text-align: center;">2 m²</td>
+                            <td style="text-align: right;">25.000,00</td>
+                            <td style="text-align: right;">50.000,00</td>
+                        </tr>
+                        <tr>
+                            <td>A04</td>
+                            <td>Kit de Reparo Estrutural e Vedação Balística</td>
+                            <td style="text-align: center;">1 Kit</td>
+                            <td style="text-align: right;">45.000,00</td>
+                            <td style="text-align: right;">45.000,00</td>
+                        </tr>
+                        
+                        <tr><td colspan="5"><strong>B. MÃO DE OBRA ESPECIALIZADA</strong></td></tr>
+                        <tr>
+                            <td>B01</td>
+                            <td>Desmontagem e Remontagem Completa (Interior e Carroceria)</td>
+                            <td style="text-align: center;">200 Hr</td>
+                            <td style="text-align: right;">350,00</td>
+                            <td style="text-align: right;">70.000,00</td>
+                        </tr>
+                        <tr>
+                            <td>B02</td>
+                            <td>Aplicação, Moldagem e Cura da Nova Malha Balística</td>
+                            <td style="text-align: center;">60 Hr</td>
+                            <td style="text-align: right;">400,00</td>
+                            <td style="text-align: right;">24.000,00</td>
+                        </tr>
+                        
+                        <tr><td colspan="5"><strong>C. SERVIÇOS COMPLEMENTARES E CERTIFICAÇÃO</strong></td></tr>
+                        <tr>
+                            <td>C01</td>
+                            <td>Testes Balísticos de Resistência Pós-Reparo</td>
+                            <td style="text-align: center;">1 Serv.</td>
+                            <td style="text-align: right;">28.000,00</td>
+                            <td style="text-align: right;">28.000,00</td>
+                        </tr>
+                        <tr>
+                            <td>C02</td>
+                            <td>Emissão de Novo Laudo e Certificado de Blindagem</td>
+                            <td style="text-align: center;">1 Unid.</td>
+                            <td style="text-align: right;">8.000,00</td>
+                            <td style="text-align: right;">8.000,00</td>
+                        </tr>
+                        
+                        <tr class="total-row">
+                            <td colspan="4" style="text-align: right;"><strong>VALOR TOTAL</strong></td>
+                            <td style="text-align: right;"><strong>R$ 350.000,00</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- CONDIÇÕES COMERCIAIS -->
+            <div class="section">
+                <div class="section-title">Condições Comerciais</div>
+                <p><strong>Validade da Proposta:</strong> 30 (trinta) dias. | <strong>Prazo de Execução:</strong> 25 (vinte e cinco) dias úteis. | <strong>Forma de Pagamento:</strong> À vista. | <strong>Garantia:</strong> 12 (doze) meses.</p>
+            </div>
+        </div>
+
+        <!-- ASSINATURA DO GERENTE TÉCNICO -->
+        <div class="assinatura">
+            <div class="caixa-assinatura">
+                <!-- Se tiver imagem da assinatura do Emerson, colocar aqui -->
+                <!-- <img src="caminho/para/assinatura_emerson.png" alt="Assinatura Emerson Carvalho"> -->
+                <div class="linha-assinatura"></div>
+                <p class="nome-assinatura">Emerson Carvalho</p>
+                <p class="cargo-assinatura">Gerente Técnico</p>
+            </div>
+        </div>
+
+        <!-- RODAPÉ -->
+        <div class="rodape">
+            OFICINA TEMPLE | Soluções Automotivas de Alta Performance | CNPJ 88.037.723/0001-06
+        </div>
+
+    </div>
+</body>
+</html>
