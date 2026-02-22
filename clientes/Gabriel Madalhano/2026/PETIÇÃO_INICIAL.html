@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Representação Criminal</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Times New Roman', serif;
+            padding: 0;
+        }
+        .documento {
+            background-color: white;
+            color: black;
+            width: 210mm;
+            min-height: 297mm;
+            padding: 3cm 2cm 3cm 3cm; /* AUMENTEI O PADDING INFERIOR PARA 3CM */
+            margin: 0 auto;
+            text-align: justify;
+            line-height: 1.5;
+            box-sizing: border-box;
+            position: relative;
+            border: none;
+        }
+        .cabecalho {
+            text-align: center;
+            border-bottom: 2px solid #c5a059;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+        }
+        .logo {
+            margin-bottom: -35px;
+        }
+        .logo img {
+            width: 220px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border: none;
+        }
+        h1 {
+            margin: 0;
+            font-size: 26pt;
+            letter-spacing: 4px;
+            font-weight: 400;
+            color: #001f3f;
+            text-transform: uppercase;
+            font-family: 'Cinzel', serif;
+        }
+        h1 span {
+            color: #c5a059;
+        }
+        .subtitulo {
+            margin: 5px 0;
+            font-size: 10pt;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            color: #666;
+            font-weight: bold;
+        }
+        .info-escritorio {
+            margin-top: 10px;
+            font-size: 8pt;
+            color: #999;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+        .titulo-documento {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .titulo-documento span {
+            font-size: 14pt;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 2px solid black;
+            padding-bottom: 3px;
+        }
+        .corpo {
+            font-size: 12pt;
+            color: black;
+        }
+        .corpo p {
+            margin: 0 0 8px 0;
+            text-align: justify;
+            text-indent: 1.25cm;
+        }
+        .corpo p.no-indent {
+            text-indent: 0;
+        }
+        .corpo h3 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin: 15px 0 5px 0;
+            text-indent: 0;
+        }
+        .corpo ul {
+            margin: 5px 0 10px 2.5cm;
+        }
+        .corpo li {
+            text-align: justify;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 11pt;
+        }
+        th {
+            background-color: #001f3f;
+            color: white;
+            font-weight: bold;
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #001f3f;
+        }
+        td {
+            border: 1px solid #999;
+            padding: 6px;
+            vertical-align: top;
+        }
+        .assinatura {
+            margin-top: 80px; /* AUMENTEI O ESPAÇO ACIMA DA ASSINATURA */
+            display: flex;
+            justify-content: center;
+        }
+        .caixa-assinatura {
+            text-align: center;
+            width: 300px;
+            position: relative;
+        }
+        .caixa-assinatura img {
+            width: 150px;
+            position: absolute;
+            bottom: 45px; /* AUMENTEI O VALOR NEGATIVO (MAIS NEGATIVO SOBE) */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            filter: grayscale(100%) contrast(1.2);
+            opacity: 0.9;
+            pointer-events: none;
+        }
+        .linha-assinatura {
+            border-top: 1.5px solid black;
+            margin-bottom: 5px;
+            width: 100%;
+        }
+        .nome-assinatura {
+            font-weight: bold;
+            font-size: 12pt;
+            text-transform: uppercase;
+            margin: -5px 0 0 0; /* ADICIONEI MARGEM NEGATIVA PARA SUBIR O NOME */
+        }
+        .cargo-assinatura {
+            font-size: 10pt;
+            color: #333;
+            margin-top: -2px; /* PEQUENA MARGEM NEGATIVA PARA SUBIR O CARGO */
+        }
+        .rodape {
+            position: absolute;
+            bottom: 2cm;
+            left: 3cm;
+            right: 2cm;
+            text-align: center;
+            font-size: 10pt;
+            color: #666;
+            border-top: 1px solid #eee;
+            padding-top: 5px;
+        }
+        @media print {
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+    <div class="documento">
+
+        <!-- CABEÇALHO -->
+        <div class="cabecalho">
+            <div class="logo">
+                <img src="https://github.com/jimusho-seidokai/santos-e-associados/blob/main/imagens/S%26A.png?raw=true" alt="S&A Logo">
+            </div>
+            <div>
+                <h1>SANTOS <span>&</span> ASSOCIADOS</h1>
+                <p class="subtitulo">Advocacia Estratégica & Consultoria de Estado</p>
+                <div class="info-escritorio">
+                    CNPJ: 50.233.670/0001-26 | IE: 944.102.242.195 | OAB/SP 2026.001
+                </div>
+            </div>
+        </div>
+
+        <!-- TÍTULO -->
+        <div class="titulo-documento">
+            <span>REPRESENTAÇÃO CRIMINAL</span>
+        </div>
+
+        <!-- CORPO -->
+        <div class="corpo">
+            <p class="no-indent"><strong>EXCELENTÍSSIMO SENHOR DOUTOR PROMOTOR DE JUSTIÇA DO MINISTÉRIO PÚBLICO DO ESTADO DE SÃO PAULO</strong></p>
+
+            <p class="no-indent"><strong>REPRESENTANTE:</strong> Gabriel Madalhano, brasileiro, solteiro, caminhoneiro, portador do RG nº 707113819, residente e domiciliado em São Paulo/SP, por seu advogado infra‑assinado.</p>
+
+            <p class="no-indent"><strong>REPRESENTADOS:</strong></p>
+            <ul>
+                <li><strong>TC BM BRUNO</strong>, Tenente‑Coronel do Corpo de Bombeiros Militar;</li>
+                <li><strong>1º SGT PM MARINHO</strong>, Primeiro‑Sargento da Polícia Militar;</li>
+                <li><strong>3º SGT PM JAMES</strong>, Terceiro‑Sargento do Corpo de Bombeiros Militar;</li>
+                <li><strong>CB BM MATHEUS</strong>, Cabo do Corpo de Bombeiros Militar;</li>
+                <li><strong>CB PM GUIMARÃES</strong>, Cabo da Polícia Militar;</li>
+                <li><strong>SD PM MOTTA</strong>, Soldado da Polícia Militar;</li>
+                <li><strong>SD PM MESQUITA</strong>, Soldado da Polícia Militar;</li>
+                <li><strong>SD PM NOGUEIRA</strong>, Soldado da Polícia Militar;</li>
+                <li><strong>SD PM COSTA</strong>, Soldado da Polícia Militar;</li>
+                <li><strong>SD PM CAPANEMA</strong>, Soldado da Polícia Militar;</li>
+                <li><strong>SD PM NOGUEIRA</strong>, Soldado da Polícia Militar;</li>
+                <li><strong>SD PM MAEL</strong>, Soldado da Polícia Militar;</li>
+                <li><strong>Demais policiais e bombeiros</strong> que, de qualquer forma, participaram das agressões, ameaças ou concorreram para o resultado.</li>
+            </ul>
+
+            <h3>I – DOS FATOS</h3>
+            <p>No dia 19 de fevereiro de 2026, o representante, após breve perseguição policial (que não resultou na apreensão de qualquer ilícito), foi capturado por policiais militares. No local, chegaram agentes do Corpo de Bombeiros, que passaram a agredi‑lo e ameaçá‑lo de morte.</p>
+            <p>Conforme se extrai da gravação anexa, o <strong>CB BM MATHEUS</strong> perguntou: <em>“Posso dar uma facada nesse cara aqui?”</em>. Em seguida, outros bombeiros e policiais, manifestaram‑se de forma a incentivar ou tolerar as agressões</p>
+            <p>Os bombeiros, liderados pelo <strong>CB BM MATHEUS</strong>, obtiveram autorização para “sumir” com o representante, (00:00:33: <em>“1º SGT PM MARINHO: Some com ele aí então, já que você tá nessa vontade”</em>). (00:00:37: <em>“REPRESENTANTE:porque que o bombeiro vai sumir comigo? TC BM Bruno: te levar para passear. CB BM Matheus: Bota ele na mala”</em>). O <strong>CB BM MATHEUS</strong> ordenou ao <strong>SD PM NOGUEIRA</strong> que avisasse ao COPOM que o preso havia “corrido” (00:00:54: <em>“Avisa aí que o mesmo correu aí”</em>). Diante da iminência de morte, o representante, mesmo algemado, tentou fugir, oportunidade em que foi alvejado por disparos de arma de fogo efetuados pelos bombeiros <strong>TC BM BRUNO</strong> e <strong>CB BM MATHEUS</strong>, sendo atingido nas costas e desacordando.</p>
+            <p>Após os disparos, os bombeiros abandonaram a vítima. Os policiais militares <strong>SD PM MESQUITA</strong> e <strong>SD PM COSTA</strong> resgataram e a conduziram ao hospital. No entanto, por ordem expressa do <strong>TC BM BRUNO</strong>, os policiais foram instruídos a relatar que o representante havia “tropeçado e caído” (00:02:09: <em>“Leva ele no hospital, fala que ele tropeçou e caiu”</em>).</p>
+            <p>Durante todo o período, o representante foi alvo de xingamentos e humilhações por parte dos agentes, inclusive após os disparos, quando já estava desacordado. Policiais e bombeiros que nada fizeram para impedir as ilegalidades, como os que estão na lista de representados, também devem responder por prevaricação, pois tinham o dever de agir e se omitiram.</p>
+
+            <h3>II – DOS CRIMES</h3>
+            <p>As condutas narradas amoldam-se, em tese, aos seguintes tipos penais:</p>
+            <ul>
+                <li><strong>Tentativa de homicídio qualificado</strong> (art. 121, §2º, IV c/c art. 14, II, do CP) – para os bombeiros que efetuaram os disparos contra vítima algemada.</li>
+                <li><strong>Lesão corporal</strong> (art. 129 do CP) – para os bombeiros que agrediram.</li>
+                <li><strong>Ameaça</strong> (art. 147 do CP) – para o CB BM MATHEUS e outros que ameaçaram com faca e de morte.</li>
+                <li><strong>Injúria</strong> (art. 140 do CP) – para todos os que proferiram xingamentos.</li>
+                <li><strong>Abuso de autoridade</strong> (art. 13 da Lei 13.869/2024) – para os que usaram violência contra preso.</li>
+                <li><strong>Falsidade ideológica</strong> (art. 299 do CP) – para o TC BM BRUNO e para os PMs que executaram a ordem de relatar versão falsa.</li>
+                <li><strong>Participação em crime</strong> (art. 29 do CP) – para o 1º SGT PM MARINHO e demais que autorizaram ou incentivaram o “sumiço”.</li>
+                <li><strong>Prevaricação</strong> (art. 319 do CP) – para todos os agentes que, por omissão, deixaram de impedir as ilegalidades, tendo o dever de fazê‑lo.</li>
+            </ul>
+            <p>Além disso, incidiram nos artigos 9º, 13, 15‑A, 20, 29 e 30 da Lei nº 13.869/2024 (abuso de autoridade), conforme detalhado na tabela anexa.</p>
+
+            <!-- TABELA DE ABUSO DE AUTORIDADE INSERIDA AQUI -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Artigo</th>
+                        <th>Conduta típica</th>
+                        <th>Agente(s)</th>
+                        <th>Justificativa / Prova</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Art. 9º</strong></td>
+                        <td>Decretar medida de privação da liberdade em manifesta desconformidade com as hipóteses legais.</td>
+                        <td>TC BM BRUNO, 1º SGT PM MARINHO, CB BM MATHEUS</td>
+                        <td>Ao autorizarem e executarem o plano de “sumir” com a vítima (colocá-la no porta-malas), determinaram uma privação de liberdade totalmente arbitrária, sem qualquer base legal. A tentativa de homicídio subsequente é a face mais grave dessa ilegalidade.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Art. 13</strong></td>
+                        <td>Constranger preso ou detento mediante violência, grave ameaça, ou submetê-lo a situação vexatória.</td>
+                        <td>CB BM MATHEUS (ameaça de facada); Bombeiros que agrediram fisicamente; Todos os que xingaram (inclusive PMs).</td>
+                        <td>Ameaça de facada, agressões físicas e xingamentos constantes, inclusive após a vítima estar desacordada.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Art. 15‑A</strong></td>
+                        <td>Submeter a vítima a procedimentos desnecessários, repetitivos ou invasivos que a levem a reviver a situação de violência (revitimização).</td>
+                        <td>TC BM BRUNO (ordenou versão falsa); CB BM MATHEUS (ordenou comunicação falsa de fuga); Bombeiros que abandonaram a vítima.</td>
+                        <td>A versão falsa (“tropeço e queda”) visa encobrir os fatos, obrigando a vítima a reviver a violência em eventual investigação viciada. O abandono da vítima desacordada também configura desrespeito e agravamento do sofrimento.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Art. 20</strong></td>
+                        <td>Impedir, sem justa causa, a entrevista pessoal e reservada do preso com seu advogado.</td>
+                        <td>Não identificado diretamente na gravação, mas a dinâmica dos fatos (ameaças de morte, sumiço) evidencia que não foi oportunizado contato com defensor.</td>
+                        <td>Requer-se que o MP apure se houve pedido de assistência advocatícia e negativa.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Art. 29</strong></td>
+                        <td>Prestar informação falsa sobre procedimento policial.</td>
+                        <td>TC BM BRUNO, CB BM MATHEUS, SD PM NOGUEIRA (ao avisar que “o mesmo correu”), e os PMs que levaram ao hospital repetindo a versão da queda.</td>
+                        <td>Ordem para comunicar fuga (00:00:54) e ordem para relatar queda (00:02:09). A execução dessas ordens configura o tipo.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Art. 30</strong></td>
+                        <td>Dar início a procedimento sem justa causa ou contra inocente.</td>
+                        <td>TC BM BRUNO e demais superiores que, ao ordenarem a versão falsa, criaram a base para um procedimento interno fraudulento.</td>
+                        <td>A criação de uma falsa versão dos fatos visa justificar a ação violenta e ocultar a responsabilidade dos agentes, caracterizando o início de uma apuração viciada.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>III – DA NECESSIDADE DE IDENTIFICAÇÃO DOS AGENTES</h3>
+            <p>Requer-se, desde já, que Vossa Excelência oficie aos Comandos da Polícia Militar e do Corpo de Bombeiros para que, com base nas imagens, fardas e viaturas, identifiquem todos os agentes envolvidos, fornecendo seus nomes completos e registros funcionais.</p>
+
+            <h3>IV – DAS PROVAS</h3>
+            <p>Instruem a presente representação:</p>
+            <ul>
+                <li>Gravação integral do ocorrido (mídia digital);</li>
+                <li>Transcrição da gravação com indicação dos falantes;</li>
+                <li>Relato do representante;</li>
+            </ul>
+
+            <h3>V – DA AÇÃO PRIVADA SUBSIDIÁRIA</h3>
+            <p>O art. 3º, §1º da Lei 13.869/2024 admite a ação privada subsidiária se o Ministério Público não oferecer denúncia no prazo legal. Caso Vossa Excelência entenda pela ausência de elementos ou deixe transcorrer o prazo sem manifestação, fica desde já ressalvado o direito do representante de ingressar com queixa‑crime subsidiária, nos termos do art. 5º, LIX da Constituição Federal.</p>
+
+            <h3>VI – DOS PEDIDOS</h3>
+            <p>Ante o exposto, requer-se:</p>
+            <p>a) O recebimento da presente representação, com a consequente instauração de inquérito policial para apuração dos fatos;</p>
+            <p>b) A expedição de ofícios à PM e ao CBM para identificação de todos os agentes envolvidos;</p>
+            <p>c) A oitiva do representante e das testemunhas;</p>
+            <p>d) Ao final, o oferecimento de denúncia contra todos os responsáveis, nos termos da lei.</p>
+            <p>Protesta provar o alegado por todos os meios em direito admitidos.</p>
+
+            <p class="no-indent">Nestes termos, pede deferimento.</p>
+            <p class="no-indent">São Paulo, 20 de fevereiro de 2026.</p>
+        </div>
+
+        <!-- ASSINATURA -->
+        <div class="assinatura">
+            <div class="caixa-assinatura">
+                <img src="https://github.com/jimusho-seidokai/santos-e-associados/blob/main/imagens/assinatura_virgulino.png?raw=true" alt="Assinatura Virgulino Santos">
+                <div class="linha-assinatura"></div>
+                <p class="nome-assinatura">Virgulino Santos</p>
+                <p class="cargo-assinatura">OAB/SP 238.126 | Sócio-Diretor</p>
+            </div>
+        </div>
+
+        <!-- RODAPÉ -->
+        <div class="rodape">
+            SANTOS & ASSOCIADOS | Rodovia Interestadual 425 Leste, 425, Centro – São Paulo/SP
+        </div>
+
+    </div>
+</body>
+</html>

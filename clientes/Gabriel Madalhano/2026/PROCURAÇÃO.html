@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procuração – Gabriel Madalhano</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            font-family: 'Times New Roman', serif;
+            padding: 0;
+        }
+        .documento {
+            background-color: white;
+            color: black;
+            width: 210mm;
+            min-height: 297mm;
+            padding: 2.2cm 2cm 1.5cm 3cm; /* superior reduzido para 2.2cm, inferior 1.5cm */
+            margin: 0 auto;
+            text-align: justify;
+            line-height: 1.3;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            border: none;
+        }
+        .cabecalho {
+            text-align: center;
+            border-bottom: 1.5px solid #c5a059;
+            padding-bottom: 6px;
+            margin-bottom: 15px; /* reduzido */
+            flex-shrink: 0;
+        }
+        .logo {
+            margin-bottom: -35px;
+        }
+        .logo img {
+            width: 170px; /* levemente menor */
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border: none;
+        }
+        h1 {
+            margin: 0;
+            font-size: 20pt;
+            letter-spacing: 3px;
+            font-weight: 400;
+            color: #001f3f;
+            text-transform: uppercase;
+            font-family: 'Cinzel', serif;
+        }
+        h1 span {
+            color: #c5a059;
+        }
+        .subtitulo {
+            margin: 2px 0;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #666;
+            font-weight: bold;
+        }
+        .info-escritorio {
+            margin-top: 3px;
+            font-size: 7.5pt;
+            color: #999;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+        .titulo-documento {
+            text-align: center;
+            margin-bottom: 15px; /* reduzido */
+            flex-shrink: 0;
+        }
+        .titulo-documento span {
+            font-size: 13pt;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 2px solid black;
+            padding-bottom: 2px;
+        }
+        .corpo {
+            font-size: 10.5pt;
+            color: black;
+            flex-grow: 1;
+            margin-bottom: 5px; /* reduzido */
+        }
+        .corpo p {
+            margin: 0 0 5px 0; /* reduzido de 8px para 5px */
+            text-indent: 1.25cm;
+        }
+        .corpo p.sem-recuo {
+            text-indent: 0;
+        }
+        .data-final {
+            text-align: center;
+            margin-top: 5px; /* reduzido */
+            font-size: 10.5pt;
+        }
+        .data-final p {
+            margin: 2px 0;
+            text-indent: 0;
+        }
+        .assinatura-area {
+            width: 280px;
+            margin: 5px auto 0; /* reduzido */
+            text-align: center;
+            flex-shrink: 0;
+        }
+        .assinatura-container {
+            position: relative;
+            height: 40px; /* reduzido */
+            width: 100%;
+        }
+        .assinatura-container img {
+            height: 65px; /* reduzido */
+            width: auto;
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            filter: grayscale(100%) contrast(1.2);
+            opacity: 0.9;
+            pointer-events: none;
+        }
+        .linha-assinatura {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            border-top: 1.5px solid black;
+            z-index: 5;
+        }
+        .assinatura-texto {
+            margin-top: 5px; /* reduzido */
+            display: block;
+        }
+        .nome-assinatura {
+            margin: 0;
+            font-weight: bold;
+            font-size: 11pt;
+            color: black;
+            text-transform: uppercase;
+        }
+        .cargo-assinatura {
+            margin: 2px 0 0 0;
+            font-size: 8.5pt;
+            color: #333;
+        }
+        .rodape {
+            margin-top: 8px; /* reduzido */
+            text-align: center;
+            font-size: 7pt;
+            color: #666;
+            border-top: 1px solid #eee;
+            padding-top: 3px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="documento">
+
+        <!-- CABEÇALHO -->
+        <div class="cabecalho">
+            <div class="logo">
+                <img src="https://github.com/jimusho-seidokai/santos-e-associados/blob/main/imagens/S%26A.png?raw=true" alt="S&A Logo">
+            </div>
+            <div>
+                <h1>SANTOS <span>&</span> ASSOCIADOS</h1>
+                <p class="subtitulo">Advocacia Estratégica & Consultoria de Estado</p>
+                <div class="info-escritorio">
+                    CNPJ: 50.233.670/0001-26 | IE: 944.102.242.195 | OAB/SP 2026.001
+                </div>
+            </div>
+        </div>
+
+        <!-- TÍTULO -->
+        <div class="titulo-documento">
+            <span>PROCURAÇÃO AD JUDICIA ET EXTRA</span>
+        </div>
+
+        <!-- CORPO -->
+        <div class="corpo">
+            <p class="sem-recuo"><strong>OUTORGANTE:</strong> GABRIEL MADALHANO, brasileiro, solteiro, caminhoneiro, portador do RG nº 707113819, residente e domiciliado em São Paulo/SP.</p>
+            
+            <p><strong>OUTORGADOS:</strong> VIRGULINO SANTOS, inscrito na OAB/SP sob o nº 238.126, e FABIO ARAUJO, inscrito na OAB/SP sob o nº 986.955, ambos sócios da SANTOS & ASSOCIADOS, com sede na Rodovia Interestadual 425 Leste, nº 425, Centro, São Paulo/SP.</p>
+
+            <p><strong>PODERES:</strong> Pelo presente instrumento, o OUTORGANTE nomeia e constitui os OUTORGADOS como seus bastantes procuradores, conferindo-lhes os poderes da cláusula <em>ad judicia et extra</em>, para representá-lo em qualquer juízo, tribunal ou órgão da administração pública, Ministério Público, secretarias de segurança, corregedorias, polícia militar, corpo de bombeiros e delegacias de polícia.</p>
+
+            <p><strong>PODERES ESPECIAIS:</strong> Os mandatários possuem poderes específicos para impetrar habeas corpus, mandados de segurança e demais ações constitucionais; produzir provas; participar de audiências; confessar; desistir; transigir; firmar acordos; receber valores e dar quitação; representar o outorgante em ações indenizatórias contra o Estado; oferecer representações criminais e queixas‑crime; atuar em procedimentos administrativos disciplinares e inquéritos militares; podendo, inclusive, substabelecer este instrumento a outrem, com ou sem reservas de iguais poderes.</p>
+
+            <p><strong>FINALIDADE:</strong> Representação jurídica integral para defesa criminal, administrativa e cível, bem como persecução de responsabilidades e reparação de danos, relativos aos fatos ocorridos em 19 de fevereiro de 2026, envolvendo agentes do Corpo de Bombeiros Militar e da Polícia Militar, conforme provas apresentadas.</p>
+        </div>
+
+        <!-- DATA E FRASE -->
+        <div class="data-final">
+            <p style="font-weight: bold; font-style: italic;">“Prudentia, Justitia et Potentia.”</p>
+            <p>São Paulo, 21 de fevereiro de 2026.</p>
+        </div>
+
+        <!-- ASSINATURA DO OUTORGANTE -->
+        <div class="assinatura-area">
+            <div class="assinatura-container">
+                <div class="linha-assinatura"></div>
+            </div>
+            <div class="assinatura-texto">
+                <p class="nome-assinatura">GABRIEL MADALHANO</p>
+                <p class="cargo-assinatura">Outorgante</p>
+            </div>
+        </div>
+
+        <!-- RODAPÉ -->
+        <div class="rodape">
+            SANTOS & ASSOCIADOS | Rodovia Interestadual 425 Leste, 425, Centro – São Paulo/SP
+        </div>
+
+    </div>
+</body>
+</html>
